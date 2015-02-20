@@ -26,6 +26,7 @@
     "for_each": "nathanfaucett/for_each",
     "is_array": "nathanfaucett/is_array",
     "is_function": "nathanfaucett/is_function",
-    "keys": "git://github.com/nathanfaucett/keys"
+    "keys": "git://github.com/nathanfaucett/keys",
+    "values": "git://github.com/nathanfaucett/values"
   }
 }

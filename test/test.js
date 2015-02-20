@@ -4,7 +4,7 @@ var assert = require("assert"),
 
 describe("parallel(tasks, callback)", function() {
     describe("#(tasks : Array, callback)", function() {
-        it("should call array of tasks in order", function(done) {
+        it("should call array of tasks in parallel", function(done) {
             parallel([
                 function(done) {
                     process.nextTick(function() {
@@ -59,9 +59,20 @@ describe("parallel(tasks, callback)", function() {
                 done();
             });
         });
+
+        it("should throw an error if a task is not a function", function(done) {
+            try {
+                parallel([
+                    "string"
+                ], function() {});
+            } catch (err) {
+                assert.equal(err.message, "parallel(tasks, callback) tasks must be functions");
+                done();
+            }
+        });
     });
     describe("#(tasks : Object, callback)", function() {
-        it("should call object tasks in order", function(done) {
+        it("should call object tasks in parallel", function(done) {
             parallel({
                 "first": function(done) {
                     process.nextTick(function() {
@@ -119,6 +130,20 @@ describe("parallel(tasks, callback)", function() {
                 assert.equal(err.message, "not found");
                 done();
             });
+        });
+
+        it("should throw an error if a task is not a function", function(done) {
+            try {
+                parallel({
+                    "first": "string",
+                    "second": function(done) {
+                        done();
+                    }
+                }, function() {});
+            } catch (err) {
+                assert.equal(err.message, "parallel(tasks, callback) tasks must be functions");
+                done();
+            }
         });
     });
 });
