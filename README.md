@@ -12,15 +12,9 @@ var fs = require("fs"),
     parallel = require("parallel");
 
 parallel(
-    ["file1", "file2", "file3"].map(function(file) {
+    ["file1", "file2", "file3"].map(function(path) {
         return function(done) {
-            fs.stat(file, function(err, stat) {
-                if (err) {
-                    done(err);
-                } else {
-                    done(undefined, stat);
-                }
-            });
+            fs.stat(path, done);
         };
     }),
     function(err, results) {

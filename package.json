@@ -21,11 +21,11 @@
     "mocha": "^2.1.0"
   },
   "dependencies": {
-    "empty_function": "nathanfaucett/empty_function",
-    "fast_slice": "nathanfaucett/fast_slice",
-    "for_each": "nathanfaucett/for_each",
-    "is_array": "nathanfaucett/is_array",
-    "is_function": "nathanfaucett/is_function",
+    "empty_function": "git://github.com/nathanfaucett/empty_function",
+    "fast_slice": "git://github.com/nathanfaucett/fast_slice",
+    "for_each": "git://github.com/nathanfaucett/for_each",
+    "is_array": "git://github.com/nathanfaucett/is_array",
+    "is_function": "git://github.com/nathanfaucett/is_function",
     "keys": "git://github.com/nathanfaucett/keys",
     "values": "git://github.com/nathanfaucett/values"
   }

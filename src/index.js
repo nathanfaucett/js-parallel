@@ -7,6 +7,17 @@ var keys = require("keys"),
     fastSlice = require("fast_slice");
 
 
+module.exports = parallel;
+
+
+function parallel(tasks, callback) {
+    return (
+        isArray(tasks) ?
+        arrayParallel(tasks, callback || emptyFunction) :
+        objectParallel(Object(tasks), callback || emptyFunction)
+    );
+}
+
 function arrayParallel(tasks, callback) {
     var results = [],
         count = tasks.length,
@@ -72,11 +83,3 @@ function objectParallel(tasks, callback) {
         }
     });
 }
-
-module.exports = function parallel(tasks, callback) {
-    return (
-        isArray(tasks) ?
-        arrayParallel(tasks, callback || emptyFunction) :
-        objectParallel(Object(tasks), callback || emptyFunction)
-    );
-};
