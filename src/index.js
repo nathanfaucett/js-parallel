@@ -1,7 +1,7 @@
 var keys = require("keys"),
     objectValues = require("values").objectValues,
     forEach = require("for_each"),
-    isArray = require("is_array"),
+    isArrayLike = require("is_array_like"),
     isFunction = require("is_function"),
     emptyFunction = require("empty_function"),
     fastSlice = require("fast_slice");
@@ -12,7 +12,7 @@ module.exports = parallel;
 
 function parallel(tasks, callback) {
     return (
-        isArray(tasks) ?
+        isArrayLike(tasks) ?
         arrayParallel(tasks, callback || emptyFunction) :
         objectParallel(Object(tasks), callback || emptyFunction)
     );
