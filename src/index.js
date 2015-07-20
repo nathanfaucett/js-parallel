@@ -23,14 +23,14 @@ function arrayParallel(tasks, callback) {
         count = tasks.length,
         called = false;
 
-    forEach(tasks, function(task, index) {
+    forEach(tasks, function eachArrayParallel(task, index) {
         if (isFunction(task)) {
-            task(function(err) {
+            task(function next(error) {
                 var argsLength;
                 if (called === false) {
-                    if (err) {
+                    if (error) {
                         called = true;
-                        callback(err);
+                        callback(error);
                     } else {
                         argsLength = arguments.length;
                         if (argsLength > 1) {
@@ -57,14 +57,14 @@ function objectParallel(tasks, callback) {
         count = objectKeys.length,
         called = false;
 
-    forEach(values, function(task, index) {
+    forEach(values, function eachObjectParallel(task, index) {
         if (isFunction(task)) {
-            task(function(err) {
+            task(function next(error) {
                 var argsLength;
                 if (called === false) {
-                    if (err) {
+                    if (error) {
                         called = true;
-                        callback(err);
+                        callback(error);
                     } else {
                         argsLength = arguments.length;
                         if (argsLength > 1) {
