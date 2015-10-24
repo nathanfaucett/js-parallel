@@ -1,6 +1,7 @@
 var keys = require("keys"),
     objectValues = require("values").objectValues,
-    forEach = require("for_each"),
+    arrayForEach = require("array-for_each"),
+    objectForEach = require("object-for_each"),
     isArrayLike = require("is_array_like"),
     isFunction = require("is_function"),
     emptyFunction = require("empty_function"),
@@ -23,7 +24,7 @@ function arrayParallel(tasks, callback) {
         count = tasks.length,
         called = false;
 
-    forEach(tasks, function eachArrayParallel(task, index) {
+    arrayForEach(tasks, function eachArrayParallel(task, index) {
         if (isFunction(task)) {
             task(function next(error) {
                 var argsLength;
@@ -57,10 +58,11 @@ function objectParallel(tasks, callback) {
         count = objectKeys.length,
         called = false;
 
-    forEach(values, function eachObjectParallel(task, index) {
+    objectForEach(values, function eachObjectParallel(task, index) {
         if (isFunction(task)) {
             task(function next(error) {
                 var argsLength;
+
                 if (called === false) {
                     if (error) {
                         called = true;
