@@ -9,7 +9,7 @@ parallel for the browser and node.js
 ```javascript
 
 var fs = require("fs"),
-    parallel = require("parallel");
+    parallel = require("@nathanfaucett/parallel");
 
 parallel(
     ["file1", "file2", "file3"].map(function(path) {
