@@ -32,10 +32,10 @@
     "@nathanfaucett/empty_function": "^0.0.1",
     "@nathanfaucett/fast_slice": "^0.0.1",
     "@nathanfaucett/array-for_each": "^0.0.1",
-    "@nathanfaucett/object-for_each": "^0.0.1",
+    "@nathanfaucett/object-for_each": "^0.0.2",
     "@nathanfaucett/is_array_like": "^0.0.2",
     "@nathanfaucett/is_function": "^0.0.1",
-    "@nathanfaucett/keys": "^0.0.1",
-    "@nathanfaucett/values": "^0.0.1"
+    "@nathanfaucett/keys": "^0.0.2",
+    "@nathanfaucett/values": "^0.0.2"
   }
 }
